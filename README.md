@@ -1,13 +1,18 @@
-## Software Engineer Portfolio
+## Technical Project Reports Site
 
-This project is a single-page software engineer portfolio built with React, TypeScript, and Vite.
+This project is a simple React, TypeScript, and Vite site for hosting technical reports on projects.
 
-It includes:
+The main page is structured into:
 
-- A hero section with a short introduction and primary calls to action.
-- About and skills sections.
-- Three mock portfolio projects.
-- A prominent **View Resume** button and **Contact Me** mailto button.
+- **Hero section**: Brief introduction, high-level overview.
+- **Projects section**: List of projects, each linking to a dedicated technical writeup.
+- **Contact section**: Basic contact information or form so people can reach out.
+
+Each project will have its own technical writeup page, which can include:
+
+- **Images and diagrams** that illustrate architecture, workflows, and results.
+- **Sections for key technical features**, design decisions, and implementation details.
+- **Sections for hurdles and challenges**, including how you diagnosed and solved them.
 
 ### Getting Started
 
@@ -24,25 +29,3 @@ npm run dev
 ```
 
 3. Open the URL shown in your terminal (typically `http://localhost:5173`).
-
-### Adding Your Resume
-
-1. Place a PDF copy of your resume at:
-
-- `public/resume.pdf`
-
-2. The **View Resume** button in the hero section links to `/resume.pdf` and will open it in a new tab.
-
-### Updating Contact Email
-
-The **Contact Me** buttons currently use a placeholder email address.
-
-- Search in `src/App.tsx` for `CONTACT_EMAIL`.
-- Replace the placeholder value with your real email (for example, `your.name@example.com`).
-
-### Customizing Content
-
-- Update the hero text, about section, skills, and project details directly in `src/App.tsx`.
-- Adjust colors and layout tokens in `src/index.css` and `src/App.css` if you want to tweak the visual design.
-
-
