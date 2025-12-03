@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
+import * as React from "react";
 
 type Project = {
   id: number;
@@ -8,11 +9,6 @@ type Project = {
   techStack: string[];
   codeUrl?: string;
   demoUrl?: string;
-};
-
-type Tool = {
-  name: string;
-  short: string;
 };
 
 const projects: Project[] = [
@@ -43,17 +39,6 @@ const projects: Project[] = [
     codeUrl: "#",
     demoUrl: "#",
   },
-];
-
-const tools: Tool[] = [
-  { name: "TypeScript", short: "TS" },
-  { name: "React", short: "R" },
-  { name: "Node.js", short: "N" },
-  { name: "GitHub", short: "GH" },
-  { name: "VS Code", short: "VSC" },
-  { name: "PostgreSQL", short: "PG" },
-  { name: "Jest", short: "JT" },
-  { name: "Docker", short: "D" },
 ];
 
 const RESUME_URL = "/resume.pdf";
@@ -102,26 +87,15 @@ function App() {
   };
   return (
     <div className='app'>
-      <header className='app-header'>
-        <div className='app-header__inner'>
-          <a href='#hero' className='brand' aria-label='Back to top'>
-            <span className='brand__mark'>{"</>"}</span>
-            <span className='brand__text'>Connor</span>
-          </a>
-          <nav className='nav' aria-label='Primary'>
-            <a className='nav__link nav__link--primary' href='#projects'>
-              Projects
-            </a>
-            <span className='nav__divider' aria-hidden='true' />
-            <a className='nav__link' href='#projects'>
-              SpriteWar.io
-            </a>
-            <a className='nav__link' href='#projects'>
-              BrawlChamps
-            </a>
-            <a className='nav__link' href='#projects'>
-              Project May
-            </a>
+      <header className='header'>
+        <div className='header__inner'>
+          <nav className='navbar' aria-label='Back to top'>
+              <a className='nav__link nav__link--primary' href='#hero' aria-label='Back to top'>
+                  Home
+              </a>
+              <a className='nav__link nav__link--primary' href='#projects'>
+                  Projects
+              </a>
           </nav>
           <div className='nav-actions'>
             <a
@@ -151,10 +125,10 @@ function App() {
           <div className='section__inner section__inner--hero'>
             <div className='hero__content'>
               <h1 className='hero__title'>Connor Wallis</h1>
-              <p className='hero__eyebrow hero__eyebrow--below'>
+              <p className='hero__subtitle hero__subtitle--below'>
                 Software engineer
               </p>
-              <p className='hero__subtitle'>
+              <p className='hero__description'>
                 I design, build, and ship end-to-end features in modern
                 TypeScript and React stacks, with a focus on clean architecture,
                 performance, and great developer experience.
@@ -174,21 +148,6 @@ function App() {
                 >
                   Contact Me
                 </a>
-              </div>
-              <div className='hero-tools' aria-label='Tools I work with'>
-                <div className='hero-tools__marquee'>
-                  <div className='hero-tools__track'>
-                    {tools.concat(tools).map((tool, index) => (
-                      <div
-                        key={`${tool.name}-${index}`}
-                        className='hero-tools__item'
-                      >
-                        <span className='hero-tools__icon'>{tool.short}</span>
-                        <span className='hero-tools__text'>{tool.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
               <a
                 ref={scrollRef}
@@ -215,12 +174,11 @@ function App() {
           aria-labelledby='projects-heading'
         >
           <div className='section__inner'>
-            <header className='section-header'>
-              <p className='section-header__eyebrow'>Projects</p>
-              <h2 id='projects-heading' className='section-header__title'>
-                Selected work &amp; experiments.
+            <header className='projects-header'>
+              <h2 id='projects-heading' className='projects-header__title'>
+                Projects
               </h2>
-              <p className='section-header__subtitle'>
+              <p className='projects-header__subtitle'>
                 A few representative projects that highlight how I think about
                 product engineering, performance, and developer experience.
               </p>
